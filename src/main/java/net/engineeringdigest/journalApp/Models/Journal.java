@@ -1,7 +1,14 @@
 package net.engineeringdigest.journalApp.Models;
 
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "journal_entries")
 public class Journal {
-    private long id;
+
+    @Id
+    private ObjectId id;
 
     public String getTitle() {
         return title;
@@ -22,11 +29,11 @@ public class Journal {
     private String title;
     private String description;
 
-    public long getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 }
